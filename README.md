@@ -94,10 +94,7 @@ Looker is used to create interactive and dynamic dashboards that provide insight
     python3 Crypto_Data_Ingestion.py
     ```
 
-2. Upload data to GCS (if needed):
-    ```bash
-    python storage_manager.py
-    ```
+2. Upload data to GCS (if needed).
 
 3. Access the Looker dashboards to visualize the data.
 
