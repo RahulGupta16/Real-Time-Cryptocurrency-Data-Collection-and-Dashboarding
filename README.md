@@ -1,7 +1,7 @@
 # Cryptocurrency Live Data Ingestion, ETL, and Dashboarding
 
 ## Project Overview
-This project focuses on live data ingestion, ETL (Extract, Transform, Load), and dashboarding for cryptocurrency data. Utilizing Python and Google Cloud Platform (GCP) tools such as BigQuery, Looker, and Google Cloud Storage (GCS), I have built a seamless data pipeline and insightful dashboards. The goal is to provide real-time analytics and visualization for cryptocurrency market trends, price movements, and trading volumes.
+This project focuses on live data ingestion, ETL (Extract, Transform, Load), and dashboarding for cryptocurrency data. Utilizing Python and Google Cloud Platform (GCP) tools such as BigQuery, Looker, and Google Cloud Storage (GCS), I have built a seamless data pipeline and insightful dashboards. The goal is to provide real-time analytics and visualization for cryptocurrency market trends, price movements, and trading volumes. The Python scripts are scheduled to run on a GCP Compute Engine VM to ensure continuous data processing.
 
 ## Table of Contents
 1. [Project Setup](#project-setup)
@@ -17,19 +17,16 @@ This project focuses on live data ingestion, ETL (Extract, Transform, Load), and
 - Python 3.x
 - Google Cloud Platform account
 - BigQuery, Looker, and GCS services enabled
-- Required Python libraries: `pandas`, `google-cloud-bigquery`, `google-cloud-storage`, `requests`, `sqlalchemy`
+- Required Python libraries: `pandas`, `google-cloud-bigquery`, `google-cloud-storage`, `requests`
 
 ### Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/crypto-data-pipeline.git
-    cd crypto-data-pipeline
+    git clone https://github.com/RahulGupta16/Real-Time-Cryptocurrency-Data-Collection-and-Dashboarding.git
+    cd Real-Time-Cryptocurrency-Data-Collection-and-Dashboarding
     ```
 
-2. Install the required Python libraries:
-    ```bash
-    pip install -r requirements.txt
-    ```
+2. Install the required Python libraries.
 
 3. Set up GCP credentials:
     - Create a service account and download the JSON key file.
@@ -43,7 +40,7 @@ This project focuses on live data ingestion, ETL (Extract, Transform, Load), and
 The data ingestion component involves collecting real-time data from various cryptocurrency exchanges. This is achieved through APIs provided by the exchanges.
 
 ### Implementation
-- `data_ingestion.py`: This script fetches real-time cryptocurrency data and stores it temporarily for the ETL process.
+- `Crypto_Data_Ingestion.py`: This script fetches real-time cryptocurrency data. The data is extracted and transformed, then ingested into BigQuery. The script is scheduled to run on a GCP Compute Engine VM using cron jobs to perform regular ETL tasks.
 - Example API usage:
     ```python
     import requests
@@ -57,37 +54,16 @@ The data ingestion component involves collecting real-time data from various cry
 The ETL process involves extracting data, transforming it to a suitable format, and loading it into BigQuery for analysis.
 
 ### Implementation
-- `etl_process.py`: This script performs the ETL operations.
+- `Crypto_Data_Ingestion.py`: This script performs the ETL operations.
 - Steps:
   1. **Extract**: Fetch data from the ingestion layer.
   2. **Transform**: Clean and transform the data (e.g., handling missing values, data type conversions).
   3. **Load**: Load the transformed data into BigQuery.
 
-### Sample Code
-```python
-import pandas as pd
-from google.cloud import bigquery
-
-# Extract
-data = pd.read_json('data/temp_data.json')
-
-# Transform
-data_cleaned = data.dropna()
-
-# Load
-client = bigquery.Client()
-dataset_ref = client.dataset('crypto_data')
-table_ref = dataset_ref.table('prices')
-job = client.load_table_from_dataframe(data_cleaned, table_ref)
-job.result()
-```
-
 ## Data Storage
 ### Description
 Google Cloud Storage (GCS) is used for secure and scalable storage of raw and processed data.
 
-### Implementation
-- `storage_manager.py`: This script handles the upload and retrieval of data from GCS.
 - Example:
     ```python
     from google.cloud import storage
@@ -113,22 +89,17 @@ Looker is used to create interactive and dynamic dashboards that provide insight
 
 ## Usage
 ### Running the Pipeline
-1. Run the data ingestion script:
+1. Run the data ingestion & ETL script:
     ```bash
-    python data_ingestion.py
+    python3 Crypto_Data_Ingestion.py
     ```
 
-2. Run the ETL process:
-    ```bash
-    python3 crypto_code.py
-    ```
-
-3. Upload data to GCS (if needed):
+2. Upload data to GCS (if needed):
     ```bash
     python storage_manager.py
     ```
 
-4. Access the Looker dashboards to visualize the data.
+3. Access the Looker dashboards to visualize the data.
 
 ## Conclusion
 This project provides a comprehensive solution for real-time cryptocurrency data analysis. By leveraging Python and GCP tools, the data pipeline ensures efficient data processing, storage, and visualization. This empowers users to make informed, data-driven decisions in the fast-paced world of cryptocurrency trading.
