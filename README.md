@@ -1,7 +1,7 @@
-# Cryptocurrency Live Data Ingestion, ETL, and Dashboarding
+# Cryptocurrency Data Ingestion, ETL, and Dashboarding
 
 ## Project Overview
-This project focuses on live data ingestion, ETL (Extract, Transform, Load), and dashboarding for cryptocurrency data. Utilizing Python and Google Cloud Platform (GCP) tools such as BigQuery, Looker, and Google Cloud Storage (GCS), I have built a seamless data pipeline and insightful dashboards. The goal is to provide real-time analytics and visualization for cryptocurrency market trends, price movements, and trading volumes. The Python scripts are scheduled to run on a GCP Compute Engine VM to ensure continuous data processing.
+This project focuses on data ingestion, ETL (Extract, Transform, Load), and dashboarding for cryptocurrency data. Utilizing Python and Google Cloud Platform (GCP) tools such as BigQuery, Looker, and Compute Engine, I have built a seamless data pipeline and insightful dashboards. The goal is to provide real-time analytics and visualization for cryptocurrency market trends, price movements, and trading volumes. The Python scripts are scheduled to run on a GCP Compute Engine VM to ensure continuous data processing.
 
 ## Table of Contents
 1. [Project Setup](#project-setup)
