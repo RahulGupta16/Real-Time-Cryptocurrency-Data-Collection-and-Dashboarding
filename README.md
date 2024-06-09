@@ -98,6 +98,9 @@ Looker is used to create interactive and dynamic dashboards that provide insight
 
 3. Access the Looker dashboards to visualize the data.
 
+## Report URL-
+https://lookerstudio.google.com/reporting/13f03565-f1f6-4b5c-9ebd-4a2662ecc603/page/tEnnC
+
 ## Conclusion
 This project provides a comprehensive solution for real-time cryptocurrency data analysis. By leveraging Python and GCP tools, the data pipeline ensures efficient data processing, storage, and visualization. This empowers users to make informed, data-driven decisions in the fast-paced world of cryptocurrency trading.
 
